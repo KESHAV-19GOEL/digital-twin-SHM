@@ -1,0 +1,12 @@
+git init // only if no git repository is initialized
+git status
+
+git add .
+
+git commit -m "Your descriptive commit message"
+
+git branch -M main
+
+git remote add origin url_of_repo
+
+git push -u origin main
