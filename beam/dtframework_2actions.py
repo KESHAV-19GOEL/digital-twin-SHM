@@ -1072,7 +1072,7 @@ if __name__ == '__main__':
                                 list_cpd_subgraph=list_cpd_subgraph,
                                 plot=False)
 
-    graph_frame.simulate(n_steps=5, n_samples=100, n_obs=10)
+    graph_frame.simulate(n_steps=50, n_samples=100, n_obs=10)
     
     plotting_frame = Plot(graph_frame,'./plotters/2_act')
     plotting_frame.plot_history_all_together()
