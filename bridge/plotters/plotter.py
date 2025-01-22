@@ -146,7 +146,12 @@ class Plot:
         cbar = fig.colorbar(img2, ax=ax[len(self.indices)], orientation='vertical', pad=0.03, aspect=7, ticks=[0.0, 0.5, 1.0])
         cbar.set_label('$P \, (U^{\mathtt{P}}_t|D_t)$')
         
-        plt.savefig(Path(self.path + '/history.pdf'))
+        # To save the plot at the desired location
+        # plt.savefig(Path(self.path + '/history.pdf'))
+        
+        # To show the plot on the screen
+        plt.show()
+
 
 
     def plot_prediction_all_together(self, n_steps=1, n_samples=1000, figsize=(10, 5)):
@@ -219,4 +224,9 @@ class Plot:
         cbar.ax.set_yticklabels(['0.00', '0.50', '1.00'])
         cbar.set_label('$P \, (U^{\mathtt{P}}_t|D_t)$')
 
+
+        # To save the plot at the desired location
         plt.savefig(Path(self.path + '/predictions.pdf'))
+        
+        # To show the plot on the screen
+        plt.show()

@@ -1,6 +1,6 @@
 import os
 import sys
-os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
+# os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '1'
 
 from pathlib import Path
@@ -10,6 +10,8 @@ keras.backend.clear_session()
 import numpy as np
 import pandas as pd
 import random as rnd
+
+
 import matplotlib.pyplot as plt
 
 from pgmpy.models import DynamicBayesianNetwork as DBN
@@ -1018,6 +1020,7 @@ if __name__ == '__main__':
 
     # number of classes in the dataset
     n_class = 7
+    
     # damage level discretization adopted to describe different states, related 
     # to the same damage location but different damage severity
     d_level_discr = 0.1
