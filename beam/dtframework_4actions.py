@@ -1189,8 +1189,10 @@ if __name__ == '__main__':
                                 list_cpd_subgraph=list_cpd_subgraph,
                                 plot=True)
 
-    graph_frame.simulate(n_steps=50, n_samples=100, n_obs=10)
+    # graph_frame.simulate(n_steps=50, n_samples=100, n_obs=10)
     
     plotting_frame = Plot(graph_frame,'./plotters/4_act')
-    plotting_frame.plot_history_all_together(figsize=(10, 10))
-    plotting_frame.plot_prediction_all_together(n_steps=20, n_samples=1000)
+    # plotting_frame.plot_history_all_together(figsize=(10, 10))
+    # plotting_frame.plot_prediction_all_together(n_steps=20, n_samples=1000)
+    plotting_frame.temp_plot_confusion_matrix(conf_mat_dt)
+    plotting_frame.plot_confusion_matrix(conf_mat_dt)
