@@ -276,8 +276,8 @@ class Plot:
         colorbar.set_ticklabels(percent_ticks)
         
         # Specify gridline positions (indices where lines are to be added)
-        vertical_lines = [0.5,6.5,12.5,18.5,24.5,30.5,36.5,42.5 ]  # Columns after which to add vertical gridlines
-        horizontal_lines = [0.5,6.5,12.5,18.5,24.5,30.5,36.5,42.5]  # Rows after which to add horizontal gridlines
+        vertical_lines = [0.5,6.5,12.5,18.5,24.5,30.5,36.5]  # Columns after which to add vertical gridlines
+        horizontal_lines = [0.5,6.5,12.5,18.5,24.5,30.5,36.5]  # Rows after which to add horizontal gridlines
         
         # Add vertical grid lines
         for x in vertical_lines:
@@ -288,12 +288,12 @@ class Plot:
             ax.hlines(y, 0, conf_mat_dt.shape[1], colors='black',alpha=0.7, linestyles='dotted', linewidth=1.1)
 
         # Define specific y-tick positions and labels
-        ytick_positions = [3.5,9.5,15.5,21.5,27.5,33.5,39.5]  # Positions on the y-axis
-        ytick_labels = [f'$\Omega_{str(1)}$', f'$\Omega_{str(2)}$',f'$\Omega_{str(3)}$', f'$\Omega_{str(4)}$',f'$\Omega_{str(5)}$',f'$\Omega_{str(6)}$',f'$\Omega_{str(7)}$']  # Corresponding labels
+        ytick_positions = [3.5,9.5,15.5,21.5,27.5,33.5]  # Positions on the y-axis
+        ytick_labels = [f'$\Omega_{str(1)}$', f'$\Omega_{str(2)}$',f'$\Omega_{str(3)}$', f'$\Omega_{str(4)}$',f'$\Omega_{str(5)}$',f'$\Omega_{str(6)}$']  # Corresponding labels
        
         # Define specific x-tick positions and labels
-        xtick_positions = [3.5,9.5,15.5,21.5,27.5,33.5,39.5]  # Positions on the y-axis
-        xtick_labels = [f'$\Omega_{str(1)}$', f'$\Omega_{str(2)}$',f'$\Omega_{str(3)}$', f'$\Omega_{str(4)}$',f'$\Omega_{str(5)}$',f'$\Omega_{str(6)}$',f'$\Omega_{str(7)}$']  # Corresponding labels
+        xtick_positions = [3.5,9.5,15.5,21.5,27.5,33.5]  # Positions on the y-axis
+        xtick_labels = [f'$\Omega_{str(1)}$', f'$\Omega_{str(2)}$',f'$\Omega_{str(3)}$', f'$\Omega_{str(4)}$',f'$\Omega_{str(5)}$',f'$\Omega_{str(6)}$']  # Corresponding labels
 
         # Set y-ticks and their labels
         ax.set_yticks(ytick_positions)
