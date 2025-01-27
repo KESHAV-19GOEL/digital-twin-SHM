@@ -268,24 +268,11 @@ class Plot:
             
     def plot_confusion_matrix(self,conf_mat_dt):
         viridis_big = mpl.colormaps['Blues']
-        # newcmp = ListedColormap(viridis_big(np.linspace(0.1, 0.7, 128)))
-        plt.rc('font', size=19)
+
+        plt.rc('font', size=13, family='serif')
 
         fig, ax = plt.subplots()
 
-        # Plot the matrix
-        # cax = ax.pcolormesh(conf_mat_dt, cmap='Blues', shading='auto')
-        
-        # Add a colorbar
-        # fig.colorbar(cax)
-
-        # Add gridlines
-        # ax.set_xticks(np.arange(conf_mat_dt.shape[0]) + 0.5, minor=True)  # Add ticks at cell boundaries (x-axis)
-        # ax.set_yticks(np.arange(conf_mat_dt.shape[1]) + 0.5, minor=True)  # Add ticks at cell boundaries (y-axis)
-        # ax.grid(which='minor', color='black', linestyle='-', linewidth=0.5)  # Draw the gridlines
-        # ax.tick_params(which='minor', bottom=False, left=False)  # Remove minor tick labels
-        # # Show the plot
-        # plt.show()
         # Plotting the matrix as an image
         plt.imshow(conf_mat_dt, cmap=viridis_big, interpolation='nearest')
         
@@ -306,7 +293,7 @@ class Plot:
         
         # Add vertical grid lines
         for x in vertical_lines:
-            ax.vlines(x, 0, conf_mat_dt.shape[0], colors='black',alpha=0.7, linestyles='dotted', linewidth=1.1)
+            ax.vlines(x, 0, conf_mat_dt.shape[0], colors='black',alpha=0.5, linestyles='dashed', linewidth=1.1)
         
         # Add horizontal grid lines
         for y in horizontal_lines:
@@ -329,9 +316,12 @@ class Plot:
         ax.set_xticklabels(xtick_labels)
 
         # Adding labels and title
-        plt.title("Confusion Matrix")
+        # plt.title("Confusion Matrix")
         plt.xlabel("Predicted state")
         plt.ylabel("Target state")
+        
+        # Save the plot at the desired location
+        # plt.savefig(Path(self.path + '/Confusion_matrix.pdf'))
         
         # Show the plot
         plt.show()

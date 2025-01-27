@@ -230,3 +230,87 @@ class Plot:
         
         # To show the plot on the screen
         plt.show()
+
+
+
+    def temp_plot_confusion_matrix(self,conf_mat_dt):
+        # viridis_big = mpl.colormaps['viridis']
+        # newcmp = ListedColormap(viridis_big(np.linspace(0.1, 0.7, 128)))
+        # plt.rc('font', size=19)
+
+
+
+        # Plotting the matrix as an image
+        plt.imshow(conf_mat_dt, cmap='viridis', interpolation='nearest')
+        
+        # Adding a colorbar to indicate intensity values
+        plt.colorbar(label="Intensity")
+        
+        # Adding labels and title
+        plt.title("Intensity Plot")
+        plt.xlabel("X-axis")
+        plt.ylabel("Y-axis")
+        
+        # Show the plot
+        plt.show()
+            
+    def plot_confusion_matrix(self,conf_mat_dt):
+        viridis_big = mpl.colormaps['Blues']
+
+        plt.rc('font', size=13, family='serif')
+
+        fig, ax = plt.subplots()
+
+        # Plotting the matrix as an image
+        plt.imshow(conf_mat_dt, cmap=viridis_big, interpolation='nearest')
+        
+        # Adding a colorbar to indicate intensity values
+        colorbar = plt.colorbar(label="Classification accuracy",orientation='vertical', pad=0.03, aspect=30)
+
+        # Customize the colorbar ticks to display percentages
+        ticks = colorbar.get_ticks()  # Get the default ticks
+        percent_ticks = [f"{int(tick * 100)}%" for tick in ticks]  # Convert to percentage format
+        
+        # Apply the new tick labels
+        colorbar.set_ticks(ticks)
+        colorbar.set_ticklabels(percent_ticks)
+        
+        # Specify gridline positions (indices where lines are to be added)
+        vertical_lines = [0.5,6.5,12.5,18.5,24.5,30.5,36.5,42.5 ]  # Columns after which to add vertical gridlines
+        horizontal_lines = [0.5,6.5,12.5,18.5,24.5,30.5,36.5,42.5]  # Rows after which to add horizontal gridlines
+        
+        # Add vertical grid lines
+        for x in vertical_lines:
+            ax.vlines(x, 0, conf_mat_dt.shape[0], colors='black',alpha=0.5, linestyles='dashed', linewidth=1.1)
+        
+        # Add horizontal grid lines
+        for y in horizontal_lines:
+            ax.hlines(y, 0, conf_mat_dt.shape[1], colors='black',alpha=0.7, linestyles='dotted', linewidth=1.1)
+
+        # Define specific y-tick positions and labels
+        ytick_positions = [3.5,9.5,15.5,21.5,27.5,33.5,39.5]  # Positions on the y-axis
+        ytick_labels = [f'$\Omega_{str(1)}$', f'$\Omega_{str(2)}$',f'$\Omega_{str(3)}$', f'$\Omega_{str(4)}$',f'$\Omega_{str(5)}$',f'$\Omega_{str(6)}$',f'$\Omega_{str(7)}$']  # Corresponding labels
+       
+        # Define specific x-tick positions and labels
+        xtick_positions = [3.5,9.5,15.5,21.5,27.5,33.5,39.5]  # Positions on the y-axis
+        xtick_labels = [f'$\Omega_{str(1)}$', f'$\Omega_{str(2)}$',f'$\Omega_{str(3)}$', f'$\Omega_{str(4)}$',f'$\Omega_{str(5)}$',f'$\Omega_{str(6)}$',f'$\Omega_{str(7)}$']  # Corresponding labels
+
+        # Set y-ticks and their labels
+        ax.set_yticks(ytick_positions)
+        ax.set_yticklabels(ytick_labels)
+        
+        # Set x-ticks and their labels
+        ax.set_xticks(xtick_positions)
+        ax.set_xticklabels(xtick_labels)
+
+        # Adding labels and title
+        # plt.title("Confusion Matrix")
+        plt.xlabel("Predicted state")
+        plt.ylabel("Target state")
+        
+        # Save the plot at the desired location
+        # plt.savefig(Path(self.path + '/Confusion_matrix.pdf'))
+        
+        # Show the plot
+        plt.show()
+    	        

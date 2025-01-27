@@ -1107,3 +1107,5 @@ if __name__ == '__main__':
     plotting_bridge = Plot(graph_bridge,'./plotters/3_act')
     plotting_bridge.plot_history_all_together()
     plotting_bridge.plot_prediction_all_together(n_steps=20, n_samples=1000)
+    plotting_bridge.temp_plot_confusion_matrix(conf_mat_dt)
+    plotting_bridge.plot_confusion_matrix(conf_mat_dt)

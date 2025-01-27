@@ -1078,3 +1078,5 @@ if __name__ == '__main__':
     plotting_frame.plot_history_all_together()
     print("after plot_history_altogether")
     plotting_frame.plot_prediction_all_together(n_steps=20, n_samples=1000)
+    plotting_frame.temp_plot_confusion_matrix(conf_mat_dt)
+    plotting_frame.plot_confusion_matrix(conf_mat_dt)
